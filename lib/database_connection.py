@@ -8,7 +8,7 @@ import os
 # If the below seems too complex right now, that's OK.
 # That's why we have provided it!
 class DatabaseConnection:
-    DATABASE_NAME = "blog_db" # <-- CHANGE THIS!
+    DATABASE_NAME = "shop_manager" # <-- CHANGE THIS!
 
     # This method connects to PostgreSQL using the psycopg library. We connect
     # to localhost and select the database name given in argument.

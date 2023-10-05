@@ -5,50 +5,54 @@ DROP TABLE IF EXISTS "public"."items";
 CREATE TABLE "public"."items" (
     "id" SERIAL,
     "name" text,
-    "stock_quantity" int,
     "unit_price" NUMERIC(10, 2), --floats with 10 digits max, and decimal place with 2 digits to the right.
+    "stock_quantity" int,
     PRIMARY KEY ("id")
 );
 
-DROP TABLE IF EXISTS "public"."items_orders"; -- Join table.
--- This script only contains the table creation statements and does not fully represent the table in the database. It's still missing: indices, triggers. Do not use it as a backup.
+-- DROP TABLE IF EXISTS "public"."orders_items"; -- Join table.
+-- -- This script only contains the table creation statements and does not fully represent the table in the database. It's still missing: indices, triggers. Do not use it as a backup.
 
--- Table Definition
-CREATE TABLE "public"."items_orders" (
-    "item_id" int4,
-    "order_id" int4
-);
+-- -- Table Definition
+-- CREATE TABLE "public"."orders_items" (
+--     "order_id" int4,
+--     "item_id" int4,
+--     "item_name" text,
+--     "quantity" int,
+--     "unit_price" NUMERIC(10, 2),
+--     "total_price" NUMERIC(10, 2)
+-- );
 
-DROP TABLE IF EXISTS "public"."orders";
--- This script only contains the table creation statements and does not fully represent the table in the database. It's still missing: indices, triggers. Do not use it as a backup.
+-- DROP TABLE IF EXISTS "public"."orders";
+-- -- This script only contains the table creation statements and does not fully represent the table in the database. It's still missing: indices, triggers. Do not use it as a backup.
 
--- Table Definition
-CREATE TABLE "public"."orders" (
-    "id" SERIAL,
-    "customer_name" text,
-    "date" date,
-    "total" NUMERIC(10, 2),
-    PRIMARY KEY ("id")
-);
+-- -- Table Definition
+-- CREATE TABLE "public"."orders" (
+--     "id" SERIAL,
+--     "customer_name" text,
+--     "date" date,
+--     "total" NUMERIC(10, 2),
+--     PRIMARY KEY ("id")
+-- );
 
-INSERT INTO "public"."items" ("name", "stock_quantity", "unit_price") VALUES
-('apple', 50, 1.00),
-('banana', 50, 2.50),
-('orange', 60, 2.75),
-('pear', 40, 3.50),
-('lettuce', 50, 2.00),
-('bread', 60, 3.00)
+INSERT INTO "public"."items" ("name", "unit_price", "stock_quantity") VALUES
+('apple', 1.00, 50), --1
+('banana', 2.50, 50), --2
+('orange', 2.75, 60), --3
+('pear', 3.50, 40), --4
+('lettuce', 2.00, 50), --5
+('bread', 3.00, 60) --6
 ;
 
-INSERT INTO "public"."orders" ("customer_name", "date", "total") VALUES
-('First Customer', '2023-12-31', 5.50)
-;
+-- INSERT INTO "public"."orders" ("customer_name", "date", "total") VALUES
+-- ('First Customer', '2023-12-31', 5.50)
+-- ;
 
-INSERT INTO "public"."items_orders" ("item_id", "order_id") VALUES
-(1, 1),
-(2, 1),
-(3, 1)
-;
+-- INSERT INTO "public"."orders_items" ("order_id", "item_id", "item_name", "quantity", "unit_price", "total_price") VALUES
+-- (1, 1),
+-- (1, 2),
+-- (1, 4)
+-- ;
 
-ALTER TABLE "public"."items_orders" ADD FOREIGN KEY ("order_id") REFERENCES "public"."orders"("id");
-ALTER TABLE "public"."items_orders" ADD FOREIGN KEY ("item_id") REFERENCES "public"."items"("id");
+-- ALTER TABLE "public"."items_orders" ADD FOREIGN KEY ("order_id") REFERENCES "public"."orders"("id");
+-- ALTER TABLE "public"."items_orders" ADD FOREIGN KEY ("item_id") REFERENCES "public"."items"("id");
