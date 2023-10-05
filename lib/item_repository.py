@@ -28,14 +28,14 @@ class ItemRepository:
         rows = self._connection.execute(
             'SELECT * from items WHERE name = %s', [name])
         row = rows[0]
-        return Item(row["id"], row["name"], row["unit_price"], row["stock_quantity"]).id
+        return Item(row["id"], row["name"], row["unit_price"], row["stock_quantity"])
 
     # Create a new item
     # Do you want to get its id back? Look into RETURNING id;
     def create(self, name, unit_price, stock_quantity):
         self._connection.execute('INSERT INTO items ("name", "unit_price", "stock_quantity") VALUES (%s, %s, %s)', [
                                 name, unit_price, stock_quantity])
-        return None #change to return ID
+        return self.find_id_by_name(name=name)
 
     # Delete an item by their id
     def delete(self, item_id):

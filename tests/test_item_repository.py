@@ -42,7 +42,7 @@ def test_get_id_by_name(db_connection):
     repository = ItemRepository(db_connection)
 
     item = repository.find_id_by_name("orange")
-    assert item == 3
+    assert item == Item(3, "orange", 2.75, 60)
 
 
 """
@@ -53,7 +53,7 @@ def test_create_record(db_connection):
     db_connection.seed("seeds/shop_manager.sql")
     repository = ItemRepository(db_connection)
 
-    repository.create("dish soap", 4.75, 20)
+    created_item = repository.create("dish soap", 4.75, 20)
 
     result = repository.all()
     assert result == [Item(1, "apple", 1.00, 50),
@@ -64,6 +64,7 @@ def test_create_record(db_connection):
         Item(6, "bread", 3.00, 60),
         Item(7, "dish soap", 4.75, 20)
     ]
+    assert created_item == Item(7, "dish soap", 4.75, 20)
 
 """
 When we call ItemRepository#delete
