@@ -73,15 +73,15 @@ class Application():
 
 
             #List all orders
-            elif user_choice = "4":
+            elif user_choice == "4":
                 pass
 
             #View order items
-            elif user_choice = "5":
+            elif user_choice == "5":
                 pass
 
             #Create order
-            elif user_choice = "6":
+            elif user_choice == "6":
                 pass
 
             #Exit program.

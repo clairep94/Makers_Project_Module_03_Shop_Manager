@@ -61,29 +61,51 @@ Here's a list of all shop items:
 
 * Item ID `serial`
 * Name `varchar`
-* Unit Price `int`
+* Unit Price `numeric, 2 digits`
 * Quantity `int`
 
 ### ItemRepository Class - items
 
 * All
-* Find
-* Add
+* Find -  by id and by name
+* Create
 * Delete
+* Update quantity - sell & restock
 
 ### Order Class
 
 * Order ID `serial`
-* Item objects
 * Date `date`
 * Customer Name `varchar` (change to customer_id?)
+* Order Total `numeric, 2 digits`
 
 ### OrderRepository Class - orders
 
 * All
 * Find
-* Add
+* Create - when called, add to orderitem for each item in the order & update quantity.
 * Delete
+
+
+### OrderItem Class
+
+* Order ID `serial`
+* Item ID `serial`
+* Item Name `varchar`
+* Item Unit Price `numeric, 2 digits`
+* Quantity Sold `integer` -- change ItemRepository
+* Total Sale `numeric, 2 digits`
+
+* Printable for receipt
+
+### OrderItemRepository Class - join table
+
+* All
+* Find
+* Create - when called, add to orderitem for each item in the order & update quantity.
+* Delete
+* Receipt
+
 
 ### Application (main)
 
@@ -93,15 +115,3 @@ Here's a list of all shop items:
 * Create new order
 * Find all orders for shop item
 
-
-### Optional feature:
-
-* Add Customer and CustomerRepository class
-* Customer - id, name, address
-* Find all orders by customer
-
-
-### Relationships:
-
-* Order can have many Items
-* Customer can have many Orders
