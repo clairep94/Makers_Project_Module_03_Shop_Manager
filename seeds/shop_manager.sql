@@ -23,17 +23,17 @@ CREATE TABLE "public"."items" (
 --     "total_price" NUMERIC(10, 2)
 -- );
 
--- DROP TABLE IF EXISTS "public"."orders";
--- -- This script only contains the table creation statements and does not fully represent the table in the database. It's still missing: indices, triggers. Do not use it as a backup.
+DROP TABLE IF EXISTS "public"."orders";
+-- This script only contains the table creation statements and does not fully represent the table in the database. It's still missing: indices, triggers. Do not use it as a backup.
 
--- -- Table Definition
--- CREATE TABLE "public"."orders" (
---     "id" SERIAL,
---     "customer_name" text,
---     "date" date,
---     "total" NUMERIC(10, 2),
---     PRIMARY KEY ("id")
--- );
+-- Table Definition
+CREATE TABLE "public"."orders" (
+    "id" SERIAL,
+    "customer_name" text,
+    "date" date,
+    "total" NUMERIC(10, 2),
+    PRIMARY KEY ("id")
+);
 
 INSERT INTO "public"."items" ("name", "unit_price", "stock_quantity") VALUES
 ('apple', 1.00, 50), --1
@@ -44,9 +44,10 @@ INSERT INTO "public"."items" ("name", "unit_price", "stock_quantity") VALUES
 ('bread', 3.00, 60) --6
 ;
 
--- INSERT INTO "public"."orders" ("customer_name", "date", "total") VALUES
--- ('First Customer', '2023-12-31', 5.50)
--- ;
+INSERT INTO "public"."orders" ("customer_name", "date", "total") VALUES
+('First Customer', '2023-10-05', 5.50),
+('John Doe', '2023-10-06', 14.50)
+;
 
 -- INSERT INTO "public"."orders_items" ("order_id", "item_id", "item_name", "quantity", "unit_price", "total_price") VALUES
 -- (1, 1),

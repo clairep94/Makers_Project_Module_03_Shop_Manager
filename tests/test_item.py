@@ -15,8 +15,8 @@ def test_item_constructs():
 We can format items to strings nicely
 """
 def test_items_format_nicely():
-    item = Item(1, "Apple", 1.00, 50)
-    assert str(item) == "#1 Apple - Unit Price: £1.00 - Quantity: 50"
+    item = Item(1, "Apple", 1.50, 40)
+    assert str(item) == "#1 Apple - Unit Price: £1.50 - Quantity: 40"
     # Try commenting out the `__repr__` method in lib/item.py
     # And see what happens when you run this test again.
 
