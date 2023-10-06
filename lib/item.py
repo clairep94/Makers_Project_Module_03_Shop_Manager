@@ -3,7 +3,7 @@ class Item:
     # Each column in the table should have an attribute here
     def __init__(self, id, name, unit_price, stock_quantity):
         self.id = id
-        self.name = name
+        self.name = name.title()
         self.unit_price = round(unit_price,2)
         self.stock_quantity = stock_quantity
 
@@ -15,4 +15,4 @@ class Item:
 
     # This method makes it look nicer when we print an Item
     def __repr__(self):
-        return f"#{self.id} {self.name.title()} - Unit Price: £{self.unit_price:.2f} - Quantity: {self.stock_quantity}"
+        return f"#{self.id} {self.name} - Unit Price: £{self.unit_price:.2f} - Quantity: {self.stock_quantity}"

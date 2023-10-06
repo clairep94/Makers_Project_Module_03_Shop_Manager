@@ -29,18 +29,18 @@ DROP TABLE IF EXISTS "public"."orders";
 CREATE TABLE "public"."orders" (
     "id" SERIAL,
     "customer_name" text,
-    "date" date,
+    "date" text,
     "total" NUMERIC(10, 2),
     PRIMARY KEY ("id")
 );
 
 INSERT INTO "public"."items" ("name", "unit_price", "stock_quantity") VALUES
-('apple', 1.00, 50), --1
-('banana', 2.50, 50), --2
-('orange', 2.75, 60), --3
-('pear', 3.50, 40), --4
-('lettuce', 2.00, 50), --5
-('bread', 3.00, 60) --6
+('Apple', 1.00, 50), --1
+('Banana', 2.50, 50), --2
+('Orange', 2.75, 60), --3
+('Pear', 3.50, 40), --4
+('Lettuce', 2.00, 50), --5
+('Bread', 3.00, 60) --6
 ;
 
 INSERT INTO "public"."orders" ("customer_name", "date", "total") VALUES

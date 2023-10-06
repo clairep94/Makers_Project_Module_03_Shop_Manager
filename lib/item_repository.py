@@ -24,7 +24,7 @@ class ItemRepository:
 
     # Find a single item by its name
     def find_id_by_name(self, name):
-        name = name.lower()
+        name = name.title()
         rows = self._connection.execute(
             'SELECT * from items WHERE name = %s', [name])
         row = rows[0]
@@ -33,6 +33,9 @@ class ItemRepository:
     # Create a new item
     # Do you want to get its id back? Look into RETURNING id;
     def create(self, name, unit_price, stock_quantity):
+        name = name.title()
+        unit_price = round(unit_price, 2)
+
         self._connection.execute('INSERT INTO items ("name", "unit_price", "stock_quantity") VALUES (%s, %s, %s)', [
                                 name, unit_price, stock_quantity])
         return self.find_id_by_name(name=name)

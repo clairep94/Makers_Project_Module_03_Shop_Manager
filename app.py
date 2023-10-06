@@ -2,6 +2,7 @@
 from lib.database_connection import DatabaseConnection
 from lib.item_repository import ItemRepository
 from lib.item import Item
+from lib.order import Order
 from lib.order_repository import OrderRepository
 # from lib.orderitem_repository import OrderItemRepository
 
@@ -102,6 +103,16 @@ class Application():
         print("")
         print("Thanks for using the shop management program!")
 
+    def test_print(self):
+        obj1 = Order(1, 'First Customer', '2023-10-05', 5.50)
+        obj2 = Order(1, 'First Customer', '2023-10-05', 5.50)
+        print("Printing first order object with repr:")
+        print(obj1)
+        print("Printing Second order object with repr:")
+        print(obj2)
+        print(obj1 == obj2)
+
 if __name__ == '__main__':
     app = Application()
-    app.run()
+    # app.run()
+    app.test_print()

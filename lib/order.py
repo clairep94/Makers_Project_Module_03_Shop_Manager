@@ -3,7 +3,7 @@ class Order:
     # Each column in the table should have an attribute here
     def __init__(self, id, customer_name, date, total):
         self.id = id
-        self.customer_name = customer_name
+        self.customer_name = customer_name.title()
         self.date = date
         self.total = round(total,2)
 
@@ -15,4 +15,4 @@ class Order:
 
     # This method makes it look nicer when we print an Order
     def __repr__(self):
-        return f"#{self.id} {self.customer_name.title()} - Ordered on: {self.date} - Order Total: £{self.total:.2f}"
+        return f"#{self.id} {self.customer_name} - Ordered on: {self.date} - Order Total: £{self.total:.2f}"
