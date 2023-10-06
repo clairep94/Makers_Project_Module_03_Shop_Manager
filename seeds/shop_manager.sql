@@ -17,7 +17,6 @@ DROP TABLE IF EXISTS "public"."orders_items"; -- Join table.
 CREATE TABLE "public"."orders_items" (
     "order_id" int4,
     "item_id" int4,
-    "item_name" text,
     "quantity" int,
     "unit_price" NUMERIC(10, 2),
     "total_price" NUMERIC(10, 2)
