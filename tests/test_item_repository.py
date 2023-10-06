@@ -9,10 +9,10 @@ def test_get_all_records(db_connection): # See conftest.py to learn what `db_con
     db_connection.seed("seeds/shop_manager.sql") # Seed our database with some test data
     repository = ItemRepository(db_connection) # Create a new ItemRepository
 
-    Items = repository.all() # Get all Items
+    items = repository.all() # Get all Items
 
     # Assert on the results
-    assert Items == [
+    assert items == [
         Item(1, "apple", 1.00, 50),
         Item(2, "banana", 2.50, 50),
         Item(3, "orange", 2.75, 60),

@@ -10,18 +10,18 @@ CREATE TABLE "public"."items" (
     PRIMARY KEY ("id")
 );
 
--- DROP TABLE IF EXISTS "public"."orders_items"; -- Join table.
--- -- This script only contains the table creation statements and does not fully represent the table in the database. It's still missing: indices, triggers. Do not use it as a backup.
+DROP TABLE IF EXISTS "public"."orders_items"; -- Join table.
+-- This script only contains the table creation statements and does not fully represent the table in the database. It's still missing: indices, triggers. Do not use it as a backup.
 
--- -- Table Definition
--- CREATE TABLE "public"."orders_items" (
---     "order_id" int4,
---     "item_id" int4,
---     "item_name" text,
---     "quantity" int,
---     "unit_price" NUMERIC(10, 2),
---     "total_price" NUMERIC(10, 2)
--- );
+-- Table Definition
+CREATE TABLE "public"."orders_items" (
+    "order_id" int4,
+    "item_id" int4,
+    "item_name" text,
+    "quantity" int,
+    "unit_price" NUMERIC(10, 2),
+    "total_price" NUMERIC(10, 2)
+);
 
 DROP TABLE IF EXISTS "public"."orders";
 -- This script only contains the table creation statements and does not fully represent the table in the database. It's still missing: indices, triggers. Do not use it as a backup.

@@ -2,8 +2,8 @@
 from lib.database_connection import DatabaseConnection
 from lib.item_repository import ItemRepository
 from lib.item import Item
-# from lib.order_repository import OrderRepository
-# from lib.order_item_repository import OrderItemRepository
+from lib.order_repository import OrderRepository
+# from lib.orderitem_repository import OrderItemRepository
 
 class Application():
     def __init__(self) -> None:
@@ -12,13 +12,21 @@ class Application():
         self._connection.seed("seeds/shop_manager.sql")
 
         self.item_repository = ItemRepository(self._connection)
+        self.order_repository = OrderRepository(self._connection)
 
     def show_all_items(self):
         print('')
         items = self.item_repository.all() #list of all Item Objects
         items.sort(key=lambda x: x.id)
         for item in items:
-            print(str(item))
+            print(item)
+
+    def show_all_orders(self):
+        print("")
+        orders = self.order_repository.all()
+        orders.sort(key=lambda x: x.id)
+        for order in orders:
+            print(order)
 
     def run(self):
         print("Welcome to the shop management program!\n")
@@ -74,7 +82,9 @@ class Application():
 
             #List all orders
             elif user_choice == "4":
-                pass
+                print('')
+                print("Ok. Here are all the orders:")
+                self.show_all_orders()
 
             #View order items
             elif user_choice == "5":
