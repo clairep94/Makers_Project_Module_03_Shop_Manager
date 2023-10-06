@@ -32,6 +32,29 @@ def test_get_single_record(db_connection):
     item = repository.find(3)
     assert item == Item(3, "orange", 2.75, 60)
 
+"""
+When we call ItemRepository#find
+We get a single Item object reflecting the seed data.
+"""
+def test_get_single_record2(db_connection):
+    db_connection.seed("seeds/shop_manager.sql")
+    repository = ItemRepository(db_connection)
+
+    item = repository.find(2)
+    assert item == Item(2, "banana", 2.50, 50)
+
+
+"""
+When we call ItemRepository#find
+We get a single Item object reflecting the seed data.
+"""
+def test_get_single_record3(db_connection):
+    db_connection.seed("seeds/shop_manager.sql")
+    repository = ItemRepository(db_connection)
+
+    item = repository.find(1)
+    assert item == Item(1, "apple", 1.00, 50)
+
 
 """
 When we call ItemRepository#find_by_name
