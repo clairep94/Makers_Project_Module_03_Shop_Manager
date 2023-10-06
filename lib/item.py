@@ -4,7 +4,7 @@ class Item:
     def __init__(self, id, name, unit_price, stock_quantity):
         self.id = id
         self.name = name.title()
-        self.unit_price = round(unit_price,2)
+        self.unit_price = float(round(unit_price,2)) #convert from decimal.decimal to float
         self.stock_quantity = stock_quantity
 
 

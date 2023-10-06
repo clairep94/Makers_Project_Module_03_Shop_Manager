@@ -4,6 +4,7 @@ from lib.item_repository import ItemRepository
 from lib.item import Item
 from lib.order import Order
 from lib.order_repository import OrderRepository
+import datetime
 # from lib.orderitem_repository import OrderItemRepository
 
 class Application():
@@ -103,14 +104,43 @@ class Application():
         print("")
         print("Thanks for using the shop management program!")
 
-    def test_print(self):
-        obj1 = Order(1, 'First Customer', '2023-10-05', 5.50)
-        obj2 = Order(1, 'First Customer', '2023-10-05', 5.50)
-        print("Printing first order object with repr:")
-        print(obj1)
-        print("Printing Second order object with repr:")
-        print(obj2)
-        print(obj1 == obj2)
+    def test_print(self): #COMMENT OUT ALL LATER
+        obj1 = self.order_repository.all()[0]
+        # obj1 = Order(1, 'First Customer', '2023-10-05', 5.50)
+        # obj2 = Order(1, 'First Customer', '2023-10-05', 5.50)
+        # print("Printing first order object with repr:")
+        # print(obj1)
+        # print("Date type:")
+        # print(type(obj1.date))
+        # print(obj1.date)
+        # print(type(obj1.date.strftime('%Y-%m-%d')))
+        # print(obj1.date.strftime('%Y-%m-%d'))
+        # print(datetime.date(2023, 6, 27))
+        # print(type(datetime.datetime.strptime('2023-10-05', '%Y-%m-%d').date()))
+        # print(datetime.datetime.strptime('2023-10-05', '%Y-%m-%d').date())
+
+        print("\nNow testing Create:")
+        created_order = self.order_repository.create('Made-up Customer', datetime.date(2023,2,3), 30.99)
+        expected_order = Order(3, 'Made-up Customer', datetime.date(2023,2,3), 30.99)
+        print("Are they equal?")
+        print(created_order == expected_order)
+
+        print("EXPECTED:")
+        print(f'''id:{expected_order.id} {type(expected_order.id)}
+customer_name: {expected_order.customer_name} {type(expected_order.id)}
+date: {expected_order.date} {type(expected_order.date)}
+price: {expected_order.total} {type(expected_order.total)}''')
+
+        print("ACTUAL:")
+        print(f'''id:{created_order.id} {type(created_order.id)}
+customer_name: {created_order.customer_name} {type(created_order.id)}
+date: {created_order.date} {type(created_order.date)}
+price: {created_order.total} {type(created_order.total)}''')
+
+
+        # print("Printing Second order object with repr:")
+        # print(obj2)
+        # print(obj1 == obj2)
 
 if __name__ == '__main__':
     app = Application()

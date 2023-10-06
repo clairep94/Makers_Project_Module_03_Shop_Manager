@@ -1,11 +1,12 @@
 class Order:
     # We initialise with all of our attributes
     # Each column in the table should have an attribute here
-    def __init__(self, id, customer_name, date, total):
+    # Note that each Order obj is initialise with sql date datatypes in the 'date' column.
+    def __init__(self, id, customer_name, sql_date_obj, total):
         self.id = id
         self.customer_name = customer_name.title()
-        self.date = date
-        self.total = round(total,2)
+        self.date = sql_date_obj #date object
+        self.total = float(round(total,2)) #convert from decimal.decimal to float
 
 
     # This method allows our tests to assert that the objects it expects

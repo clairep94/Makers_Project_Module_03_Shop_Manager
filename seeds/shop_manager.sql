@@ -29,7 +29,7 @@ DROP TABLE IF EXISTS "public"."orders";
 CREATE TABLE "public"."orders" (
     "id" SERIAL,
     "customer_name" text,
-    "date" text,
+    "date" DATE,
     "total" NUMERIC(10, 2),
     PRIMARY KEY ("id")
 );
