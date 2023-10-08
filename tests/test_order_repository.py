@@ -49,9 +49,7 @@ We get a new record in the database.
 def test_create_record(db_connection):
     db_connection.seed("seeds/shop_manager.sql")
     repository = OrderRepository(db_connection)
-
-    # created_order = repository.create("Made-up Customer", '2023-02-03', 30.99)
-
+    
     created_order = repository.create('Made-up Customer', datetime.date(2023,2,3), 30.99)
 
     result = repository.all()

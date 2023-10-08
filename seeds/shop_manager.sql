@@ -54,5 +54,5 @@ INSERT INTO "public"."orders" ("customer_name", "date", "total") VALUES
 -- (1, 4)
 -- ;
 
--- ALTER TABLE "public"."items_orders" ADD FOREIGN KEY ("order_id") REFERENCES "public"."orders"("id");
--- ALTER TABLE "public"."items_orders" ADD FOREIGN KEY ("item_id") REFERENCES "public"."items"("id");
+-- ALTER TABLE "public"."orders_items" ADD FOREIGN KEY ("order_id") REFERENCES "public"."orders"("id");
+-- ALTER TABLE "public"."orders_items" ADD FOREIGN KEY ("item_id") REFERENCES "public"."items"("id");
